@@ -1,3 +1,7 @@
+.DS_Store
+client/node-modules
+server/node-modules
+.travis.yml
 # Logs
 logs
 *.log

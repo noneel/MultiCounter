@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tw-input {
+  @apply w-full border-2 border-gray-300 bg-white h-10 px-1 pl-3 rounded-lg shadow-lg text-sm focus:border-blue-300 focus:outline-none
+}
+
+.blue-button {
+  @apply bg-blue-400 hover:bg-blue-500 p-2 rounded-full shadow-lg flex justify-center items-center
+}
+
+.red-button {
+  @apply bg-red-400 hover:bg-red-500 p-2 rounded-full shadow-lg flex justify-center items-center
+}
+
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: #68D391;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: #68D391;
+}
