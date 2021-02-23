@@ -3,6 +3,10 @@ This simple web app helps keep track of todo items and syncs the countdowns acro
 
 ## Installation
 ```
+git clone https://github.com/noneel/MultiCounter.git
+cd MultiCounter
+```
+```
 npm install
 npm run start
 ```
