@@ -1,0 +1,57 @@
+{
+  "name": "multicounter",
+  "version": "1.0.0",
+  "description": "Simple web app that keeps countdown for future times.",
+  "main": "index.js",
+  "scripts": {
+    "start-client": "cd client && craco start",
+    "build-client": "craco build",
+    "test-client": "craco test",
+    "eject-client": "craco eject",
+    "start-server": "node ./server/index.js", 
+    "start": "concurrently \"npm run start-server\" \"npm run start-client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noneel/MultiCounter.git"
+  },
+  "author": "Nathan O'Neel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noneel/MultiCounter/issues"
+  },
+  "homepage": "https://github.com/noneel/MultiCounter#readme",
+  "engines": {
+    "node": "11.10.0",
+    "npm": "6.7.0"
+  },
+  "dependencies": {
+    "@craco/craco": "^6.1.1",
+    "bootstrap": "^4.3.1",
+    "concurrently": "^6.0.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.15.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "socket.io": "^3.0.4",
+    "socket.io-client": "^3.1.1",
+    "typescript": "^3.4.2",
+    "ws": "^7.4.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.3",
+    "autoprefixer": "^9.5.1",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
+  }
+}

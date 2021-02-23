@@ -22,8 +22,6 @@ io.on('connection', (socket) => {
         }
         console.log(`Creating new timer for: ${data.value} (${date})`);
 
-        // TODO: If valid UTC time
-
         var idVal = new Date().valueOf();
         var newData = {
             id: idVal,
@@ -37,7 +35,6 @@ io.on('connection', (socket) => {
     socket.on("reqDeleteTimer", (counterId) => {
         console.log(`Deleting: ${counterId}`);
 
-        // TODO: Validate removal?
         counters = counters.filter(c => c.id !== counterId);
         io.emit("TimerDeleted", counterId);
     });

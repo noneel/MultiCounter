@@ -11,7 +11,8 @@ class TimerHeader extends Component {
     this.state = { 
       timerValue: "", 
       titleValue: "",
-      hasError: false
+      hasError: false,
+      showSuccess: false,
     };
 
     var that = this;
@@ -19,6 +20,15 @@ class TimerHeader extends Component {
       if(!isValid) {
         console.log("Server -> Invalid Timer");
         that.setState({ hasError: true });
+
+        setTimeout(function() {
+          that.setState({hasError: false}); 
+        }, 5000);
+      } else {
+        that.setState({ showSuccess: true });
+        setTimeout(function() {
+          that.setState({showSuccess: false}); 
+        }, 3000);
       }
     });
   }
@@ -28,6 +38,7 @@ class TimerHeader extends Component {
       title: this.state.titleValue, 
       value: this.state.timerValue
     });
+    this.setState({titleValue: "", timerValue: ""});
   }
 
   setValue = (text) => {
@@ -38,10 +49,14 @@ class TimerHeader extends Component {
     this.setState({titleValue: text});
   }
 
+  onEnter = () => {
+    console.log("ENTER Pressed: Submitting...");
+    this.newTimer();
+  }
+
   render() {
-    const {
-      socket,
-    } = this.props;
+    var d = new Date();
+    d.setMinutes(d.getMinutes() + 10);
     return (
       <div className="bg-gray-300 p-4 rounded-sm">
         <AlertBox
@@ -49,11 +64,17 @@ class TimerHeader extends Component {
           message={`"${this.state.timerValue}" is an invalid date.`}
           show={this.state.hasError}
         />
+        <AlertBox
+          title="Success!"
+          message={`Added new timer for "${this.state.timerValue}"`}
+          show={this.state.showSuccess}
+          color="blue"
+        />
         <div className="flex flex-row justify-center">
-          <TextInput title="Title" example="NETW 2 - Firewall Policy" setValue={this.setTitle}/>
-          <TextInput title="Time Value" example="Sat, 30 Jan 2021 18:45:24 +0000" setValue={this.setValue}/>
+          <TextInput title="Title" example="NETW 2 - Firewall Policy" setValue={this.setTitle} onEnter={this.onEnter} value={this.state.titleValue}/>
+          <TextInput title="Time Value" example={d.toUTCString()} setValue={this.setValue} onEnter={this.onEnter} value={this.state.timerValue}/>
 
-          <div className="flex items-center">
+          <div className="flex items-end">
             <button className="blue-button w-10 h-10 text-2xl text-white"
               onClick={() => this.newTimer()} >
               <i className="fa fa-plus" aria-hidden="true" />

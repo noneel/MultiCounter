@@ -43,12 +43,12 @@ class Counter extends Component {
                 {this.formatCount()}
               </span>
             </div>
-            <div className="text-center">
+            <div className="text-center mr-auto">
               <span className="text-6xl">
                 {this.formatTimeRemaining()}
               </span>
             </div>
-            <div className="flex ml-auto">
+            <div className="flex">
               <button
                 className="red-button w-10 h-10 text-2xl text-white"
                 onClick={() => this.handleDelete(this.props.counter.id)}

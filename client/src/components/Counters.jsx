@@ -9,7 +9,7 @@ class Counters extends Component {
       counters,
     } = this.props;
 
-    if(counters.length == 0) {
+    if(counters.length === 0) {
       return (
         <div className="mt-4 p-2 bg-gray-200 text-gray-400 w-full rounded-sm justify-center text-center flex items-center text-xl">
           <span>There are no current counters</span>
@@ -19,7 +19,7 @@ class Counters extends Component {
 
     return (
       <div className="mt-4 p-2 bg-gray-200 w-full rounded-sm">
-        {counters.map(counter => (
+        {counters.sort((a, b) => a.id > b.id).map(counter => (
           <Counter
             key={counter.id}
             socket={this.props.socket}

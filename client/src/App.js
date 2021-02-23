@@ -14,7 +14,7 @@ class App extends Component {
     this.state.socket = socketIOClient(ENDPOINT);
     this.state.socket.on("TimerCreated", data => {
       console.log(data);
-      const counters = this.state.counters;
+      var counters = this.state.counters;
       counters.push(data);
       this.setState({ counters });
     });
@@ -53,7 +53,7 @@ class App extends Component {
     counters: [
       // { id: 1, value: 0, title: "" }
     ],
-    showCompleted: true
+    showCompleted: false
   };
 
   render() {
