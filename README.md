@@ -1,9 +1,11 @@
 # MultiCounter
 This simple web app helps keep track of todo items and syncs the countdowns across every instance connected to the server using socket.io!
 
-## Future Work
+## Future Work (for Cedarville Students)
 - Need to add duration so that task can be set for hte correct time.
 - Need to add user selection to see what user is currently doing the specified task.
+
+If you create a pull request, I will approve it!
 
 ## Installation
 ```
